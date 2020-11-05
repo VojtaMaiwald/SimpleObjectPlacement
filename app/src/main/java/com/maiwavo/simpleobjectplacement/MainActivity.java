@@ -2,6 +2,7 @@ package com.maiwavo.simpleobjectplacement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -9,13 +10,14 @@ import com.google.ar.core.Anchor;
 import com.google.ar.sceneform.AnchorNode;
 import com.google.ar.sceneform.assets.RenderableSource;
 import com.google.ar.sceneform.rendering.ModelRenderable;
+import com.google.ar.sceneform.rendering.RenderableInstance;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
 
 public class MainActivity extends AppCompatActivity {
     private ArFragment arFragment;
     private ModelRenderable modelRenderable;
-    //private String MODEL_URL = "https://modelviewer.dev/shared-assets/models/Astronaut.glb";
+    private String MODEL_URL = "https://modelviewer.dev/shared-assets/models/Astronaut.glb";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,26 +54,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpModel() {
-        ModelRenderable.builder().setSource(this, R.raw.model)
-                .build()
-                .thenAccept(renderable -> modelRenderable = renderable)
-                .exceptionally(throwable -> {
-                    Toast.makeText(MainActivity.this, "Error in loding", Toast.LENGTH_LONG).show();
-                    return null;
-                });
-
-/*
         RenderableSource.Builder sourceBuilder = RenderableSource.builder();
-        sourceBuilder.setSource(this, Uri.parse(MODEL_URL), RenderableSource.SourceType.GLB);
-        //builder.setScale(0.8f);
+        sourceBuilder.setSource(this, Uri.parse(MODEL_URL), RenderableSource.SourceType.GLB).setScale(0.8f);
+
         RenderableSource renderableSource = sourceBuilder.setRecenterMode(RenderableSource.RecenterMode.ROOT).build();
 
         ModelRenderable.Builder modelBuilder = ModelRenderable.builder().setSource(this, renderableSource);
         modelBuilder.setRegistryId(MODEL_URL).build().thenAccept(renderable -> modelRenderable = renderable).exceptionally(throwable -> {
-            Toast.makeText(MainActivity.this, "Error in loding", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Error in loading", Toast.LENGTH_LONG).show();
             return null;
         });
-
- */
     }
 }
