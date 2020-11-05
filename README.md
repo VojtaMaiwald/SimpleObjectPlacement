@@ -2,6 +2,9 @@
 Simple object placement on detected surface after click
 
 App detects surface and allows to place defined model.
+There are two different ways how to load model:
+ - offline from phone (offline branch)
+ - online from website (online branch)
 
 ARCore services in version 1.20 required on phone
 
