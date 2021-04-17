@@ -17,6 +17,3 @@ Used model:
 ARCore SDK:
 - GitHub: https://github.com/google-ar/arcore-android-sdk
 - .obj to .sfa and .sfb converter: https://github.com/gdamoreira/google-ar-asset-converter
-
-Examples and resources:
-https://github.com/VojtaMaiwald/Resources/tree/main/SimpleObjectPlacement
